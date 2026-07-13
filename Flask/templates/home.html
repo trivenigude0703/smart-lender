@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartLender - Applicant Credit Analytics</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    :root{
+      --bg1:#0f172a;
+      --bg2:#1e293b;
+      --primary:#3b82f6;
+      --secondary:#06b6d4;
+      --text:#ffffff;
+      --text-secondary:#cbd5e1;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
+      background-size:300% 300%;
+      animation:bgMove 10s ease infinite;
+      padding:20px;
+    }
+
+    @keyframes bgMove{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    .container{
+      max-width:650px;
+      width:100%;
+      text-align:center;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(15px);
+      border:1px solid rgba(255,255,255,0.15);
+      border-radius:20px;
+      padding:45px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.35);
+    }
+
+    h1{
+      color:var(--text);
+      font-size:3rem;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+
+    .subtitle{
+      color:var(--secondary);
+      font-size:1.2rem;
+      margin-bottom:25px;
+      font-weight:500;
+    }
+
+    .result-card{
+      margin-top:20px;
+      background:rgba(15,23,42,.3);
+      border-radius:18px;
+      padding:30px;
+      border:1px solid rgba(255,255,255,.08);
+      transition:.3s;
+    }
+
+    .result-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 12px 30px rgba(0,0,0,.3);
+    }
+
+    .result-card p{
+      font-size:1.1rem;
+      line-height:1.7;
+      color:var(--text-secondary);
+      text-align:justify;
+    }
+
+    .button-group{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      margin-top:30px;
+      flex-wrap:wrap;
+    }
+
+    .home-btn{
+      display:inline-block;
+      text-decoration:none;
+      color:white;
+      background:linear-gradient(135deg,#3b82f6,#2563eb);
+      padding:14px 35px;
+      border-radius:12px;
+      font-weight:600;
+      transition:.3s;
+      box-shadow:0 8px 20px rgba(59,130,246,.35);
+    }
+
+    .home-btn:first-child{
+      background:linear-gradient(135deg,#06b6d4,#3b82f6);
+    }
+
+    .home-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 15px 30px rgba(59,130,246,.45);
+    }
+
+    .footer{
+      font-size:.85rem;
+      color:var(--text-secondary);
+      margin-top:40px;
+    }
+
+    @media(max-width:768px){
+
+      .container{
+        padding:30px 20px;
+      }
+
+      h1{
+        font-size:2.2rem;
+      }
+
+      .button-group{
+        flex-direction:column;
+      }
+
+      .home-btn{
+        width:100%;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>SmartLender</h1>
+
+    <div class="subtitle">
+      Applicant Credit Risk Analytics Portal
+    </div>
+
+    <div class="result-card">
+
+      <p>
+        Welcome to the <strong>SmartLender</strong> analytical portal. Using state-of-the-art Random Forest machine learning models trained on historical credit history, demographic data, and income characteristics, we assess applicant risk profile and loan approval eligibility with high precision.
+      </p>
+
+      <div class="button-group">
+
+        <a href="/input" class="home-btn">
+          Launch Evaluation Form
+        </a>
+
+        <a href="/input(1)" class="home-btn">
+          Evaluation Form (Backup)
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer">
+      Powered by IBM Academic Initiative &amp; SmartBridge Analytics Engine
+    </div>
+
+  </div>
+
+</body>
+</html>

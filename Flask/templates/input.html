@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartLender - Evaluation Form</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#3b82f6);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.container{
+    width:100%;
+    max-width:950px;
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+h1{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:30px;
+}
+
+form{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group-full{
+    grid-column:1/3;
+}
+
+label{
+    margin-bottom:8px;
+    font-weight:600;
+    color:#1e3a8a;
+}
+
+input,
+select{
+    padding:12px;
+    border:2px solid #dbeafe;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+}
+
+input:focus,
+select:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 8px rgba(37,99,235,.25);
+}
+
+.submit-container{
+    grid-column:1/3;
+    text-align:center;
+    margin-top:10px;
+}
+
+.submit-container input{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:14px 45px;
+    border-radius:30px;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-container input:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+.home-btn{
+    display:inline-block;
+    margin-top:25px;
+    background:#0f172a;
+    color:white;
+    padding:12px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.home-btn:hover{
+    background:#2563eb;
+}
+
+@media(max-width:768px){
+
+form{
+grid-template-columns:1fr;
+}
+
+.form-group-full,
+.submit-container{
+grid-column:1;
+}
+
+.container{
+padding:25px;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>SmartLender Eligibility Form</h1>
+
+<div class="subtitle">
+Enter applicant credit details below to predict eligibility status
+</div>
+
+<form action="/predict" method="POST">
+
+<input type="hidden" name="use_dup" value="false">
+
+<div class="form-group">
+<label>Gender</label>
+<select name="gender">
+<option value="1">Male</option>
+<option value="0">Female</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Married</label>
+<select name="married">
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Dependents</label>
+<select name="dependents">
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3+</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Education</label>
+<select name="education">
+<option value="1">Graduate</option>
+<option value="0">Not Graduate</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Self Employed</label>
+<select name="self_employed">
+<option value="0">No</option>
+<option value="1">Yes</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Credit History Status</label>
+<select name="credit_history">
+<option value="1.0">Good (No Delinquencies / Active History)</option>
+<option value="0.0">Bad (Past Delinquencies / Missing History)</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Property Area</label>
+<select name="property_area">
+<option value="2">Urban</option>
+<option value="1">Semiurban</option>
+<option value="0">Rural</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Loan Amount Term (Months)</label>
+<input type="number"
+name="loan_amount_term"
+value="360"
+min="12"
+max="480"
+required>
+</div>
+
+<div class="form-group">
+<label>Applicant Monthly Income ($)</label>
+<input type="number"
+name="applicant_income"
+placeholder="e.g. 5000"
+required>
+</div>
+
+<div class="form-group">
+<label>Coapplicant Monthly Income ($)</label>
+<input type="number"
+name="coapplicant_income"
+placeholder="e.g. 1500"
+required>
+</div>
+
+<div class="form-group form-group-full">
+<label>Requested Loan Amount ($ Thousands)</label>
+<input type="number"
+name="loan_amount"
+placeholder="e.g. 120"
+required>
+</div>
+
+<div class="submit-container">
+<input type="submit" value="Evaluate Eligibility">
+</div>
+
+</form>
+
+<div style="text-align:center;">
+<a href="/" class="home-btn">Back to Home</a>
+</div>
+
+</div>
+
+</body>
+</html>
